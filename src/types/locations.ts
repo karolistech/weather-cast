@@ -4,3 +4,9 @@ export type Location = {
   lat: number;
   lon: number;
 };
+
+export type Locations = {
+  current: Location;
+  pinned: Location;
+  saved: Location[];
+};
