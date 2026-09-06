@@ -1,5 +1,21 @@
+@font-face {
+  font-family: Poppins;
+  src: url("./assets/fonts/Poppins.woff2") format("woff2");
+  font-weight: 100 900;
+}
+
+:root {
+  --color-text: #222;
+  --color-value: #222;
+  --color-icon: #222;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: Poppins, system-ui;
 }
