@@ -1,6 +1,10 @@
 import { LocationsProvider, useLocations } from "./contexts/LocationsContext";
 import { SettingsProvider, useSettings } from "./contexts/SettingsContext";
 
+import { useWeather } from "./hooks/useWeather";
+
+import Weather from "./components/Weather/Weather";
+
 import "./App.css";
 
 export default function App() {
@@ -16,9 +20,13 @@ export default function App() {
 function AppContent() {
   const { locations } = useLocations();
   const { tempUnit } = useSettings();
+  const { weather, updateWeather } = useWeather(locations.current, tempUnit);
+
+  if (weather === null) return "Loading Screen";
 
   return (
     <div className="app">
+      <Weather weather={weather} updateWeather={updateWeather} />
     </div>
   );
 }
