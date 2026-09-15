@@ -25,3 +25,40 @@
 .weather-current__condition {
   color: var(--color-text);
 }
+
+.weather-current__primary {
+  display: flex;
+  gap: 1rem;
+}
+
+.weather-current__secondary {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 1rem clamp(1rem, 5vw, 3rem);
+}
+
+.weather-current__metric {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.weather-current__metric-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.weather-current__metric-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-current__metric-label {
+  color: var(--color-label);
+  font-size: 0.9rem;
+}
+
+.weather-current__metric-value {
+  color: var(--color-value);
+  font-weight: 500;
+}
