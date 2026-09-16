@@ -5,6 +5,7 @@
 }
 
 :root {
+  --color-surface: #eee;
   --color-text: #222;
   --color-label: #666;
   --color-value: #222;
