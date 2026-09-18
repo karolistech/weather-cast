@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .weather-current__summary {
@@ -61,4 +62,37 @@
 .weather-current__metric-value {
   color: var(--color-value);
   font-weight: 500;
+}
+
+@media (min-width: 600px) {
+  .weather-current {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-areas:
+      "summary   primary"
+      "secondary secondary";
+    justify-items: center;
+  }
+
+  .weather-current__summary {
+    grid-area: summary;
+  }
+
+  .weather-current__primary {
+    grid-area: primary;
+  }
+
+  .weather-current__secondary {
+    grid-area: secondary;
+    grid-template-columns: repeat(4, auto);
+  }
+
+  .weather-current__icon {
+    width: 124px;
+    height: 124px;
+  }
+
+  .weather-current__temp {
+    font-size: 2.25rem;
+  }
 }
