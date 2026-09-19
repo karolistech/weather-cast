@@ -5,6 +5,12 @@ export type Location = {
   lon: number;
 };
 
+export type GeocodedLocation = Location & {
+  country: string;
+  countryCode: string;
+  region?: string;
+};
+
 export type Locations = {
   current: Location;
   pinned: Location;
