@@ -3,6 +3,7 @@ import { SettingsProvider, useSettings } from "./contexts/SettingsContext";
 
 import { useWeather } from "./hooks/useWeather";
 
+import Header from "./components/Header/Header";
 import Weather from "./components/Weather/Weather";
 
 import "./App.css";
@@ -26,6 +27,7 @@ function AppContent() {
 
   return (
     <div className="app">
+      <Header />
       <Weather weather={weather} updateWeather={updateWeather} />
     </div>
   );
