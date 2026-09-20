@@ -10,6 +10,7 @@
   --color-label: #666;
   --color-value: #222;
   --color-icon: #222;
+  --color-hover: #ddd;
 }
 
 *, *::before, *::after {
