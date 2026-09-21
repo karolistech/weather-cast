@@ -1,24 +1,30 @@
 import { type ReactNode, createContext, useContext, useEffect, useReducer } from "react";
 
-import type { Locations } from "@/types/locations";
+import type { Location, Locations } from "@/types/locations";
 
 import { fetchIpLocation } from "@/api/ipLocation";
 
 type LocationsContext = {
   locations: Locations;
+  setLocation: (location: Location) => void;
 };
 
 type State = Locations | null;
 
 type Action =
   | { type: "INIT"; locations: Locations }
+  | { type: "SET"; location: Location }
 
 const LocationsContext = createContext<LocationsContext | null>(null);
 
 function locationsReducer(state: State, action: Action): State {
   if (action.type === "INIT") return action.locations;
+  if (state === null) return state;
 
-  return state;
+  switch (action.type) {
+    case "SET":
+      return { ...state, current: action.location };
+  }
 }
 
 export function LocationsProvider({ children }: { children: ReactNode }) {
@@ -45,6 +51,7 @@ export function LocationsProvider({ children }: { children: ReactNode }) {
 
   const value: LocationsContext = {
     locations: locations,
+    setLocation: location => dispatch({ type: "SET", location: location }),
   };
 
   return (
