@@ -46,6 +46,48 @@
   background: none;
 }
 
+.search-bar__locations {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  margin-top: 0.5rem;
+  background-color: var(--color-surface);
+  box-shadow: var(--color-shadow);
+  list-style-type: none;
+}
+
+.search-bar__location-button {
+  width: 100%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  text-align: left;
+}
+
+.search-bar__location-flag {
+  width: 24px;
+  height: 24px;
+}
+
+.search-bar__location-data {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-bar__location-name {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.search-bar__location-region {
+  color: var(--color-text);
+  font-size: 0.85rem;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .search-bar__input:hover {
     background-color: var(--color-hover);
@@ -53,5 +95,9 @@
 
   .search-bar__icon--clear:hover {
     color: #d44;
+  }
+
+  .search-bar__location-button:hover {
+    background-color: var(--color-hover);
   }
 }
