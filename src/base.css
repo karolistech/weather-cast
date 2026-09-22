@@ -12,6 +12,7 @@
   --color-icon: #222;
   --color-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.15);
   --color-hover: #ddd;
+  --color-touch: #ddd;
 }
 
 *, *::before, *::after {
