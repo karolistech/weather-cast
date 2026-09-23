@@ -7,7 +7,7 @@ import uiIcons from "@/assets/icons/ui-icons/ui-icons.svg";
 
 export default function SettingsMenu() {
   const [settingsMenuOpen, setSettingsMenuOpen] = useState(false);
-  const { tempUnit, toggleTempUnit } = useSettings();
+  const { tempUnit, theme, toggleTempUnit, toggleTheme } = useSettings();
 
   function toggleSettingsMenu() {
     setSettingsMenuOpen(open => !open);
@@ -30,6 +30,16 @@ export default function SettingsMenu() {
 
             <span className="settings-menu__setting-label">
               {tempUnit === "celsius" ? "Celsius" : "Fahrenheit"}
+            </span>
+          </button>
+
+          <button className="settings-menu__setting-button" onClick={toggleTheme}>
+            <svg className="settings-menu__setting-icon">
+              <use href={`${uiIcons}#${theme === "light" ? "light-theme" : "dark-theme"}`} />
+            </svg>
+
+            <span className="settings-menu__setting-label">
+              {theme === "light" ? "Light theme" : "Dark theme"}
             </span>
           </button>
         </div>
