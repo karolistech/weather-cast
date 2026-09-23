@@ -7,10 +7,20 @@ import uiIcons from "@/assets/icons/ui-icons/ui-icons.svg";
 
 export default function SettingsMenu() {
   const [settingsMenuOpen, setSettingsMenuOpen] = useState(false);
+  const [locationsMenuOpen, setLocationsMenuOpen] = useState(false);
+
   const { tempUnit, theme, toggleTempUnit, toggleTheme } = useSettings();
 
   function toggleSettingsMenu() {
     setSettingsMenuOpen(open => !open);
+  }
+
+  function openLocationsMenu() {
+    setLocationsMenuOpen(true);
+  }
+
+  function closeLocationsMenu() {
+    setLocationsMenuOpen(false);
   }
 
   return (
@@ -40,6 +50,16 @@ export default function SettingsMenu() {
 
             <span className="settings-menu__setting-label">
               {theme === "light" ? "Light theme" : "Dark theme"}
+            </span>
+          </button>
+
+          <button className="settings-menu__setting-button" onClick={openLocationsMenu}>
+            <svg className="settings-menu__setting-icon">
+              <use href={`${uiIcons}#location`} />
+            </svg>
+
+            <span className="settings-menu__setting-label">
+              Locations
             </span>
           </button>
         </div>
