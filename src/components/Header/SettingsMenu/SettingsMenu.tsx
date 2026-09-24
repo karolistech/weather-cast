@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import { useSettings } from "@/contexts/SettingsContext";
 
+import LocationsMenu from "./LocationsMenu/LocationsMenu";
+
 import "./SettingsMenu.css";
 import uiIcons from "@/assets/icons/ui-icons/ui-icons.svg";
 
@@ -63,6 +65,10 @@ export default function SettingsMenu() {
             </span>
           </button>
         </div>
+      )}
+
+      {settingsMenuOpen && locationsMenuOpen && (
+        <LocationsMenu closeLocationsMenu={closeLocationsMenu} />
       )}
     </div>
   );
