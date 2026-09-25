@@ -58,13 +58,13 @@
   font-weight: 500;
 }
 
-.locations-menu__current {
+.locations-menu__current-location {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.locations-menu__current-name {
+.locations-menu__current-location-name {
   flex: 1;
   padding: 0.5rem;
   background-color: var(--color-surface);
@@ -73,7 +73,7 @@
   font-weight: 500;
 }
 
-.locations-menu__current-actions {
+.locations-menu__current-location-actions {
   display: flex;
   gap: 0.5rem;
 }
