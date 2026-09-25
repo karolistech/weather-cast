@@ -10,7 +10,13 @@
 
 .locations-menu__content {
   width: min(95%, 350px);
+  max-height: calc(100vh - 1rem);
+  padding-bottom: 0.5rem;
+  overflow-y: auto;
   background-color: var(--color-background);
+  border-radius: 8px;
+  box-shadow: var(--color-shadow);
+  scrollbar-width: thin;
 }
 
 .locations-menu__header {
@@ -76,4 +82,51 @@
 .locations-menu__current-location-actions {
   display: flex;
   gap: 0.5rem;
+}
+
+.locations-menu__pinned-location-button {
+  padding: 0.5rem;
+  background-color: var(--color-surface);
+  border: none;
+  border-radius: 8px;
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.locations-menu__saved-locations {
+  max-height: 250px;
+  padding: 0.25rem 0.5rem;
+  margin: -0.25rem -0.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style-type: none;
+  scrollbar-width: thin;
+}
+
+.locations-menu__saved-location {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-surface);
+  border-radius: 8px;
+}
+
+.locations-menu__saved-location-button {
+  padding: 0.5rem;
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.locations-menu__button--remove {
+  margin-right: 0.5rem;
 }
