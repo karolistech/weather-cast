@@ -1,14 +1,16 @@
-.locations-menu {
+.locations-menu__backdrop {
   position: fixed;
   inset: 0;
   z-index: 3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: rgba(0, 0, 0, 0.25);
 }
 
-.locations-menu__content {
+.locations-menu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 4;
   width: min(95%, 350px);
   max-height: calc(100vh - 1rem);
   padding-bottom: 0.5rem;
@@ -36,6 +38,7 @@
   height: 24px;
   background: none;
   border: none;
+  color: var(--color-icon-button);
 }
 
 .locations-menu__button--close {
@@ -48,7 +51,6 @@
 .locations-menu__icon {
   width: 100%;
   height: 100%;
-  color: var(--color-icon);
 }
 
 .locations-menu__section {
@@ -129,4 +131,44 @@
 
 .locations-menu__button--remove {
   margin-right: 0.5rem;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .locations-menu__button--save:active {
+    color: var(--color-green);
+  }
+
+  .locations-menu__button--pin:active {
+    color: var(--color-amber);
+  }
+
+  .locations-menu__pinned-location-button:active {
+    background-color: var(--color-touch);
+  }
+
+  .locations-menu__saved-location:active {
+    background-color: var(--color-touch);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .locations-menu__button--save:hover {
+    color: var(--color-green);
+  }
+
+  .locations-menu__button--pin:hover {
+    color: var(--color-amber);
+  }
+
+  .locations-menu__button--remove:hover {
+    color: var(--color-red);
+  }
+
+  .locations-menu__pinned-location-button:hover {
+    background-color: var(--color-hover);
+  }
+
+  .locations-menu__saved-location:hover {
+    background-color: var(--color-hover);
+  }
 }
