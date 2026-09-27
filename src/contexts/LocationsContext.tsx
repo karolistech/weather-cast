@@ -3,6 +3,7 @@ import { type ReactNode, createContext, useContext, useEffect, useReducer } from
 import type { Location, Locations } from "@/types/locations";
 
 import { fetchIpLocation } from "@/api/ipLocation";
+import { storage } from "@/api/local-storage";
 
 type LocationsContext = {
   locations: Locations;
@@ -51,6 +52,17 @@ export function LocationsProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     async function init() {
+      const stored = storage.getLocations();
+
+      if (stored !== null) {
+        dispatch({
+          type: "INIT",
+          locations: { current: stored.pinned, pinned: stored.pinned, saved: stored.saved }
+        });
+
+        return;
+      }
+
       try {
         const location = await fetchIpLocation();
 
@@ -65,6 +77,12 @@ export function LocationsProvider({ children }: { children: ReactNode }) {
 
     init();
   }, []);
+
+  useEffect(() => {
+    if (locations === null) return;
+
+    storage.setLocations({ pinned: locations.pinned, saved: locations.saved });
+  }, [locations?.pinned, locations?.saved]);
 
   if (locations === null) return "Loading Screen";
 

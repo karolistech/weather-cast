@@ -3,6 +3,8 @@ import { type ReactNode, createContext, useContext, useEffect, useState } from "
 import type { TempUnit } from "@/types/tempUnit";
 import type { Theme } from "@/types/theme";
 
+import { storage } from "@/api/local-storage";
+
 type SettingsContext = {
   tempUnit: TempUnit;
   theme: Theme;
@@ -13,11 +15,17 @@ type SettingsContext = {
 const SettingsContext = createContext<SettingsContext | null>(null);
 
 export function SettingsProvider({ children }: { children: ReactNode }) {
-  const [tempUnit, setTempUnit] = useState<TempUnit>("celsius");
-  const [theme, setTheme] = useState<Theme>("light");
+  const [tempUnit, setTempUnit] = useState<TempUnit>(() => storage.getTempUnit() ?? "celsius");
+  const [theme, setTheme] = useState<Theme>(() => storage.getTheme() ?? "light");
+
+  useEffect(() => {
+    storage.setTempUnit(tempUnit);
+  }, [tempUnit]);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
+
+    storage.setTheme(theme);
   }, [theme]);
 
   function toggleTempUnit() {

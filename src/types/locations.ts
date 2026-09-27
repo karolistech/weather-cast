@@ -16,3 +16,8 @@ export type Locations = {
   pinned: Location;
   saved: Location[];
 };
+
+export type StoredLocations = {
+  pinned: Location;
+  saved: Location[];
+};
