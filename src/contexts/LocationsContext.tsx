@@ -5,6 +5,8 @@ import type { Location, Locations } from "@/types/locations";
 import { fetchIpLocation } from "@/api/ipLocation";
 import { storage } from "@/api/local-storage";
 
+import LoadingScreen from "@/components/LoadingScreen/LoadingScreen";
+
 type LocationsContext = {
   locations: Locations;
   setLocation: (location: Location) => void;
@@ -84,7 +86,7 @@ export function LocationsProvider({ children }: { children: ReactNode }) {
     storage.setLocations({ pinned: locations.pinned, saved: locations.saved });
   }, [locations?.pinned, locations?.saved]);
 
-  if (locations === null) return "Loading Screen";
+  if (locations === null) return <LoadingScreen />;
 
   const value: LocationsContext = {
     locations: locations,

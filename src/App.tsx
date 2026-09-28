@@ -3,6 +3,7 @@ import { SettingsProvider, useSettings } from "./contexts/SettingsContext";
 
 import { useWeather } from "./hooks/useWeather";
 
+import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import Header from "./components/Header/Header";
 import Weather from "./components/Weather/Weather";
 
@@ -23,7 +24,7 @@ function AppContent() {
   const { tempUnit } = useSettings();
   const { weather, updateWeather } = useWeather(locations.current, tempUnit);
 
-  if (weather === null) return "Loading Screen";
+  if (weather === null) return <LoadingScreen />;
 
   return (
     <div className="app">
